@@ -408,10 +408,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _reducers_post__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../reducers/post */ "./reducers/post.js");
-/* harmony import */ var _components_PostImages__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/PostImages */ "./components/PostImages.js");
-/* harmony import */ var _components_PostCardContent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/PostCardContent */ "./components/PostCardContent.js");
-/* harmony import */ var _reducers_user__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../reducers/user */ "./reducers/user.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _reducers_post__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../reducers/post */ "./reducers/post.js");
+/* harmony import */ var _components_PostImages__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/PostImages */ "./components/PostImages.js");
+/* harmony import */ var _components_PostCardContent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/PostCardContent */ "./components/PostCardContent.js");
+/* harmony import */ var _reducers_user__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../reducers/user */ "./reducers/user.js");
 
 
 
@@ -431,6 +433,8 @@ function _templateObject() {
 
 
 
+
+moment__WEBPACK_IMPORTED_MODULE_8___default.a.locale('ko');
 
 
 
@@ -472,7 +476,7 @@ var PostCard = function PostCard(_ref) {
 
     if (!commentFormOpened) {
       dispatch({
-        type: _reducers_post__WEBPACK_IMPORTED_MODULE_8__["LOAD_COMMENTS_REQUEST"],
+        type: _reducers_post__WEBPACK_IMPORTED_MODULE_9__["LOAD_COMMENTS_REQUEST"],
         data: post.id
       });
     }
@@ -485,7 +489,7 @@ var PostCard = function PostCard(_ref) {
     }
 
     return dispatch({
-      type: _reducers_post__WEBPACK_IMPORTED_MODULE_8__["ADD_COMMENT_REQUEST"],
+      type: _reducers_post__WEBPACK_IMPORTED_MODULE_9__["ADD_COMMENT_REQUEST"],
       data: {
         postId: post.id,
         content: commentText
@@ -506,13 +510,13 @@ var PostCard = function PostCard(_ref) {
     if (liked) {
       // 좋아요 누른 상태
       dispatch({
-        type: _reducers_post__WEBPACK_IMPORTED_MODULE_8__["UNLIKE_POST_REQUEST"],
+        type: _reducers_post__WEBPACK_IMPORTED_MODULE_9__["UNLIKE_POST_REQUEST"],
         data: post.id
       });
     } else {
       // 좋아요 안 누른 상태
       dispatch({
-        type: _reducers_post__WEBPACK_IMPORTED_MODULE_8__["LIKE_POST_REQUEST"],
+        type: _reducers_post__WEBPACK_IMPORTED_MODULE_9__["LIKE_POST_REQUEST"],
         data: post.id
       });
     }
@@ -523,14 +527,14 @@ var PostCard = function PostCard(_ref) {
     }
 
     return dispatch({
-      type: _reducers_post__WEBPACK_IMPORTED_MODULE_8__["RETWEET_REQUEST"],
+      type: _reducers_post__WEBPACK_IMPORTED_MODULE_9__["RETWEET_REQUEST"],
       data: post.id
     });
   }, [me && me.id, post && post.id]);
   var onFollow = Object(react__WEBPACK_IMPORTED_MODULE_2__["useCallback"])(function (userId) {
     return function () {
       dispatch({
-        type: _reducers_user__WEBPACK_IMPORTED_MODULE_11__["FOLLOW_USER_REQUEST"],
+        type: _reducers_user__WEBPACK_IMPORTED_MODULE_12__["FOLLOW_USER_REQUEST"],
         data: userId
       });
     };
@@ -538,7 +542,7 @@ var PostCard = function PostCard(_ref) {
   var onUnfollow = Object(react__WEBPACK_IMPORTED_MODULE_2__["useCallback"])(function (userId) {
     return function () {
       dispatch({
-        type: _reducers_user__WEBPACK_IMPORTED_MODULE_11__["UNFOLLOW_USER_REQUEST"],
+        type: _reducers_user__WEBPACK_IMPORTED_MODULE_12__["UNFOLLOW_USER_REQUEST"],
         data: userId
       });
     };
@@ -546,13 +550,13 @@ var PostCard = function PostCard(_ref) {
   var onRemovePost = Object(react__WEBPACK_IMPORTED_MODULE_2__["useCallback"])(function (userId) {
     return function () {
       dispatch({
-        type: _reducers_post__WEBPACK_IMPORTED_MODULE_8__["REMOVE_POST_REQUEST"],
+        type: _reducers_post__WEBPACK_IMPORTED_MODULE_9__["REMOVE_POST_REQUEST"],
         data: userId
       });
     };
   });
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(CardWrapper, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_3__["Card"], {
-    cover: post.Images && post.Images[0] && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_PostImages__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    cover: post.Images && post.Images[0] && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_PostImages__WEBPACK_IMPORTED_MODULE_10__["default"], {
       images: post.Images
     }),
     actions: [react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_3__["Icon"], {
@@ -587,7 +591,7 @@ var PostCard = function PostCard(_ref) {
       onClick: onFollow(post.User.id)
     }, "\uD314\uB85C\uC6B0")
   }, post.RetweetId && post.Retweet ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_3__["Card"], {
-    cover: post.Retweet.Images[0] && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_PostImages__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    cover: post.Retweet.Images[0] && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_PostImages__WEBPACK_IMPORTED_MODULE_10__["default"], {
       images: post.Retweet.Images
     })
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_3__["Card"].Meta, {
@@ -601,7 +605,7 @@ var PostCard = function PostCard(_ref) {
       as: "/user/".concat(post.Retweet.User.id)
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_3__["Avatar"], null, post.Retweet.User.nickname[0]))),
     title: post.Retweet.User.nickname,
-    description: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_PostCardContent__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    description: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_PostCardContent__WEBPACK_IMPORTED_MODULE_11__["default"], {
       postData: post.Retweet.content
     }) // a tag x -> Link
 
@@ -616,7 +620,7 @@ var PostCard = function PostCard(_ref) {
       as: "/user/".concat(post.User.id)
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_3__["Avatar"], null, post.User.nickname[0]))),
     title: post.User.nickname,
-    description: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_PostCardContent__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    description: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_PostCardContent__WEBPACK_IMPORTED_MODULE_11__["default"], {
       postData: post.content
     }) // a tag x -> Link
 
@@ -2560,6 +2564,17 @@ module.exports = require("core-js/library/fn/symbol/iterator");
 /***/ (function(module, exports) {
 
 module.exports = require("immer");
+
+/***/ }),
+
+/***/ "moment":
+/*!*************************!*\
+  !*** external "moment" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("moment");
 
 /***/ }),
 
