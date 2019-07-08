@@ -19,15 +19,15 @@ const Post = ({ id }) => {
         }, {
           property: 'og:description', content: singlePost.content,
         }, {
-          property: 'og:image', content: singlePost.Images[0] && `${backUrl}/${singlePost.Images[0].src}`,
+          property: 'og:image', content: singlePost.Images[0] ? singlePost.Images[0].src : 'http://13.113.126.41/favicon.ico',
         }, {
-          property: 'og:url', content: `${backUrl}/post/${id}`,
+          property: 'og:url', content: `${backUrl} / post / ${id}`,
         }]}
       />
       <div itemScope="content">{singlePost.content}</div>
       <div itemScope="author">{singlePost.User.nickname}</div>
       <div>
-        {singlePost.Images[0] && <img src={`${backUrl}/${singlePost.Images[0].src}`} />}
+        {singlePost.Images[0] && <img src={singlePost.Images[0].src} />}
       </div>
     </>
   );
