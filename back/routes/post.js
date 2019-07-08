@@ -16,7 +16,7 @@ AWS.config.update({
 });
 
 const upload = multer({
-  storage: multerS3.diskStorage({
+  storage: multerS3({
     s3: new AWS.S3(),
     bucket: 'react-nodebird2',
     key(req, file, cb) {
