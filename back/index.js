@@ -6,7 +6,7 @@ const expressSession = require('express-session');
 const dotenv = require('dotenv');
 const passport = require('passport');
 const hpp = require('hpp');
-const helmet = require('helment');
+const helmet = require('helmet');
 
 const passportConfig = require('./passport');
 const db = require('./models');
